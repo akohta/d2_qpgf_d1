@@ -37,7 +37,7 @@ double complex deintz(double complex (*f)(double,void *),double a,double b,void 
       do {
         xw = 1.0 / (1.0 + exp(ep - em));
         xa = ba * xw;
-	wg = xa * (1.0 - xw);
+        wg = xa * (1.0 - xw);
         fa = (*f)(a + xa,pa) * wg;
         fb = (*f)(b - xa,pa) * wg;
         ir += fa + fb;
@@ -101,17 +101,17 @@ double deintd(double (*f)(double,void *),double a,double b,void *pa,double eps,d
       ep = pi2 * em;
       em = pi2 / em;
       do {
-	xw = 1.0 / (1.0 + exp(ep - em));
-	xa = ba * xw;
-	wg = xa * (1.0 - xw);
-	fa = (*f)(a + xa,pa) * wg;
-	fb = (*f)(b - xa,pa) * wg;
-	ir += fa + fb;
-	Ih += (fa + fb) * (ep + em);
-	errt = (fabs(fa) + fabs(fb)) * (ep + em);
-	if (m == 1) *err += errt * epst;
-	ep *= ehp;
-	em *= ehm;
+        xw = 1.0 / (1.0 + exp(ep - em));
+        xa = ba * xw;
+        wg = xa * (1.0 - xw);
+        fa = (*f)(a + xa,pa) * wg;
+        fb = (*f)(b - xa,pa) * wg;
+        ir += fa + fb;
+        Ih += (fa + fb) * (ep + em);
+        errt = (fabs(fa) + fabs(fb)) * (ep + em);
+        if (m == 1) *err += errt * epst;
+        ep *= ehp;
+        em *= ehm;
       } while (errt > *err || xw > epsh);
       t += h;
     } while (t < h0);
@@ -220,16 +220,16 @@ double deintid(double(*f)(double,void *),double a,void*pa,double eps,double *err
       ep = pi4 * em;
       em = pi4 / em;
       do {
-	xp = exp(ep - em);
-	xm = 1.0 / xp;
-	fp = (*f)(a + xp,pa) * xp;
-	fm = (*f)(a + xm,pa) * xm;
-	ir += fp + fm;
-	Ih += (fp + fm) * (ep + em);
-	errt = (fabs(fp) + fabs(fm)) * (ep + em);
-	if (m == 1) *err += errt * epst;
-	ep *= ehp;
-	em *= ehm;
+        xp = exp(ep - em);
+        xm = 1.0 / xp;
+        fp = (*f)(a + xp,pa) * xp;
+        fm = (*f)(a + xm,pa) * xm;
+        ir += fp + fm;
+        Ih += (fp + fm) * (ep + em);
+        errt = (fabs(fp) + fabs(fm)) * (ep + em);
+        if (m == 1) *err += errt * epst;
+        ep *= ehp;
+        em *= ehm;
       } while (errt > *err || xm > epsh);
       t += h;
     } while (t < h0);

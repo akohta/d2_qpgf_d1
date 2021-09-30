@@ -15,11 +15,13 @@ int main()
 	td.d=d;
 	td.kx=td.k*sin(angle); // x component of wave number vector
 
-	double complex ans,qgf,dqgf[2];
-	double r[2],err;
+	double complex ans,qgf,dqgf[2],tdc;
+	double r[2],rc[2],err;
 	int erc,lm;
 	r[0]= 1.11;
 	r[1]= 0.12;
+  rc[0]=sqrt(r[0]*r[0]+r[1]*r[1]);
+  rc[1]=atan2(r[1],r[0]);
   
 	// param
 	printf("lambda=%g\n",lambda);
@@ -43,6 +45,16 @@ int main()
 	printf(" qgf   =% 15.14e %+15.14e I, erc=%d \n",creal(qgf),cimag(qgf),erc);
 	printf("dqgf/dx=% 15.14e %+15.14e I\n",creal(dqgf[0]),cimag(dqgf[0]));
 	printf("dqgf/dy=% 15.14e %+15.14e I\n",creal(dqgf[1]),cimag(dqgf[1]));
+  tdc=(dqgf[0]*cos(rc[1])+dqgf[1]*sin(rc[1])); // d(qgf)/dr   
+  printf("dqgf/dr=% 15.14e %+15.14e I\n",creal(tdc),cimag(tdc));
+  tdc=-dqgf[0]*sin(rc[1])+dqgf[1]*cos(rc[1]); // 1/r * d(qgf)/dtheta
+  printf("1/r*dqgf/dtheta=% 15.14e %+15.14e I\n",creal(tdc),cimag(tdc));
+  printf("cylindrical coordinate ( d2hm_qpgf_d1_ew_cs() )\n");
+  erc=d2hm_qpgf_d1_ew_cs(&qgf,dqgf,rc,eps,&td);
+  printf(" qgf   =% 15.14e %+15.14e I, erc=%d \n",creal(qgf),cimag(qgf),erc);
+	printf("dqgf/dr=% 15.14e %+15.14e I\n",creal(dqgf[0]),cimag(dqgf[0]));
+	printf("1/r*dqgf/dtheta=% 15.14e %+15.14e I\n",creal(dqgf[1]),cimag(dqgf[1]));
+  
 
 	// integral representation
 	printf(" -- integral representation --\n");
