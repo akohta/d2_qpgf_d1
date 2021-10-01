@@ -472,7 +472,7 @@ int qgf2_t1(double complex *f,double complex *df,double *r,double veps,double re
   double calc_bn2(int n,QGEA *ta);
 
   QGEA ta;
-  double complex dif1,dif2,eiax,tnf,tyf,tc;
+  double complex dif1,dif2,eiax,tnf=0.0,tyf=0.0,tc;
   double k2,kd,anp,anm,bn,cn,tmp,kl,kh;
   int nb,n;
   
@@ -974,8 +974,8 @@ int qgf2_t1a(double complex *f,double complex *df,double *r,double veps,double r
   int si_qgf2a(double *gn,double *hn,double cn,double ay,double aye1,double veps,double reps);
 
   QGEA ta;
-  double complex eiax,fn,tc,apb,eiby,dif,dif0,dif1;
-  double kl,kh,k2,kd,tmp,anp,anm,bn,aye1,aye2,gn,hn,cn,ra,xpr,ypr,sgy;
+  double complex eiax,fn,apb,eiby,dif,dif0,dif1;
+  double kl,kh,k2,kd,tmp,anp,anm,bn,aye1,aye2,gn=0.0,hn=0.0,cn,ra,xpr,ypr,sgy;
   int nb,n;
 
   kl=0.8*td->k; // 

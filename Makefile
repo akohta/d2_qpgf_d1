@@ -1,5 +1,5 @@
 CC      =gcc
-CFLAGS  =-O3
+CFLAGS  =-O3 -Wall
 LDFLAGS =-lm
 SRCDIR  =src
 OBJDIR  =src
