@@ -218,7 +218,7 @@ int prm_chk(QPDT *td)
 {
   if(td->k<=0.0) return -1;
   if(td->d<=0.0) return -1;
-  if(fabs(td->kx)>td->k) return -1;
+  if(fabs(td->kx)>=td->k) return -1;
   
   return 0;
 }

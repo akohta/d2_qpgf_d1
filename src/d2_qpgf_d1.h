@@ -48,7 +48,7 @@ int d2hm_qpgf_d1_ew(double complex *qgf,double complex *dqgf,double *r,double ep
    return code >0 : normal termination. returned number is total summation number. 
                -1 : function qG1 abnormal termination.
                -2 : function qG2 abnormal termination.
-               -3 : out of range ( k <= 0, d <= 0, kx > k ).
+               -3 : out of range ( k <= 0, d <= 0, kx >= k ).
 */
 
 int d2hm_qpgf_d1_ew_cs(double complex *qgf,double complex *dqgf,double *rc,double eps,QPDT *td);
@@ -64,7 +64,7 @@ int d2hm_qpgf_d1_ew_cs(double complex *qgf,double complex *dqgf,double *rc,doubl
    return code >0 : normal termination. returned number is total summation number 
                -1 : function qG1 abnormal termination.
                -2 : function qG2 abnormal termination.
-               -3 : out of range ( k <= 0, d <= 0, kx > k ).
+               -3 : out of range ( k <= 0, d <= 0, kx >= k ).
 */
 
 int d2hm_qpgf_d1_ew_cs2(double complex *qgf,double complex *dqgf,double *r,double eps,QPDT *td);
@@ -80,7 +80,7 @@ int d2hm_qpgf_d1_ew_cs2(double complex *qgf,double complex *dqgf,double *r,doubl
    return code >0 : normal termination. returned number is total summation number 
                -1 : function qG1 abnormal termination.
                -2 : function qG2 abnormal termination.
-               -3 : out of range ( k <= 0, d <= 0, kx > k ).
+               -3 : out of range ( k <= 0, d <= 0, kx >= k ).
 */
 
 int d2hm_qpgf_d1_ir(double complex *qgf,double complex *dqgf,double *r,double eps,QPDT *td,double *err);
