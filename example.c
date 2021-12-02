@@ -15,7 +15,7 @@ int main()
 	td.d=d;
 	td.kx=td.k*sin(angle); // x component of wave number vector
 
-	double complex ans,qgf,dqgf[2],tdc;
+	double complex qgf,dqgf[2],tdc;
 	double r[2],rc[2],err;
 	int erc,lm;
 	r[0]= 1.11;
